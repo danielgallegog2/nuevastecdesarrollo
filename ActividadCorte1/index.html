@@ -16,7 +16,15 @@
   <link rel="shortcut icon" type="image/png" href="./img/ProgramadorFitness.png">
   <link rel="apple-touch-icon" href="./ProgramadorFitness.png">
   <link rel="apple-touch-startup-image" href="./ProgramadorFitness.png">
-  <link rel="manifest" href="./manifest.json">
+  <!-- manifest solo en http(s)/localhost; en file:// Chrome bloquea la petición (CORS / origen null) -->
+  <script>
+    if (window.isSecureContext) {
+      const link = document.createElement('link');
+      link.rel = 'manifest';
+      link.href = './manifest.json';
+      document.head.appendChild(link);
+    }
+  </script>
 
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
@@ -44,7 +52,7 @@
     </nav>
   </header>
   <main class="Main">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/9oQIylJ-JpU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/9oQIylJ-JpU" title="Video #ProgramadorFitness" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </main>
   <script src="./script.js"></script>
 </body>
